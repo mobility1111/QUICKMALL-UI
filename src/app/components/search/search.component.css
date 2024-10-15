@@ -1,0 +1,72 @@
+
+
+
+.search-container {
+    max-width: 400px;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  input {
+    border-radius: 5px 0 0 5px;
+  }
+  
+  button {
+    border-radius: 0 5px 5px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1px; /* Adjust as needed */
+  }
+  
+  .results {
+    margin-top: 20px; /* Add margin-top as needed */
+  }
+  
+  
+  .market-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+     /* Light gray background color */
+  }
+  
+  .market-card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 10px;
+    transition: transform 0.2s;
+    background-color: #ffffff; /* White background color */
+  }
+  
+  .market-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .market-card-inner {
+    padding: 20px;
+  }
+  
+  .market-title {
+    font-size: 20px;
+    margin: 0 0 10px;
+    color: #333; /* Dark text color */
+  }
+  
+  .market-info {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555; /* Slightly darker text color */
+  }
+  
+  .market-card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  

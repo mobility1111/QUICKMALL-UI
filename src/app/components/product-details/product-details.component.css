@@ -1,0 +1,11 @@
+
+.img-fluid {
+    border-radius: 10px;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .btn-lg {
+    margin-top: 20px;
+  }
+  

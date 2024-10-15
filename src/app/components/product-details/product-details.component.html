@@ -1,0 +1,32 @@
+
+  
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="product-image rounded shadow-lg">
+        <!-- <img src="https://dummyimage.com/800x600/dee2e6/6c757d.jpg" alt="Product Image" class="img-fluid rounded"> -->
+        <app-image-display [imageString]="medicine?.imageData ?? null"></app-image-display>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="product-details">
+        <h1 class="display-4 fw-bold mb-4">{{product?.name}}</h1>
+        <h3 class="h4 mb-3">Description</h3>
+        <ul class="list-unstyled mb-4">
+           <li class="mb-2">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>{{product?.description}}
+          </li>
+        </ul>
+        <div class="d-flex align-items-center mb-4">
+          <h2 class="display-6 fw-bold me-3">₦{{product?.price}}</h2>
+          <span class="badge bg-success">On Sale</span>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-lg btn-info" (click)="addToCart()">Add to Cart</button>
+          <!-- <button class="btn btn-lg btn-outline-secondary">Buy Now</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

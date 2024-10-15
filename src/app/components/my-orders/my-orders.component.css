@@ -1,0 +1,47 @@
+
+.my-orders-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .table thead {
+    background-color: #2083f5;
+    color: white;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .table tbody tr td {
+    vertical-align: middle;
+  }
+  
+  .btn {
+    border-radius: 20px;
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: #2083f5;
+    border-color: #2083f5;
+  }
+  
+  .pagination .page-link {
+    color: #2083f5;
+  }
+  
+  .status-pending {
+    color: #ffc107;
+  }
+  
+  .status-shipped {
+    color: #007bff;
+  }
+  
+  .status-delivered {
+    color: #28a745;
+  }
+  
+  .status-cancelled {
+    color: #dc3545;
+  }
+  

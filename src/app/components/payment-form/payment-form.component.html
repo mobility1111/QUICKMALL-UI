@@ -1,0 +1,33 @@
+<div class="container mt-5 mb-4">
+    <h2>Payment Form</h2>
+    <form [formGroup]="paymentForm" (ngSubmit)="initiatePayment()">
+      <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" class="form-control" id="amount" formControlName="amount" placeholder="Enter amount" readonly>
+        <div *ngIf="paymentForm.get('amount')?.invalid && paymentForm.get('amount')?.touched" class="text-danger">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="paymentType" class="form-label">Payment Type</label>
+        <input type="type" class="form-control" id="paymentType" formControlName="paymentType" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+        <div *ngIf="paymentForm.get('email')?.invalid && paymentForm.get('email')?.touched" class="text-danger">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="shippingAddress" class="form-label">Shipping Address</label>
+        <input type="text" class="form-control" id="shippingAddress" formControlName="shippingAddress" placeholder="Enter shipping address">
+    </div>
+    <div class="mb-3">
+        <label for="billingAddress" class="form-label">Billing Address</label>
+        <input type="text" class="form-control" id="billingAddress" formControlName="billingAddress" placeholder="Enter billing address">
+    </div>
+      <!-- Add other form fields as needed -->
+      <button type="submit" class="btn btn-primary" [disabled]="paymentForm.invalid || paymentInProgress">Initiate Payment</button>
+      <div *ngIf="paymentError" class="text-danger mt-3">{{ paymentError }}</div>
+    </form>
+  </div>

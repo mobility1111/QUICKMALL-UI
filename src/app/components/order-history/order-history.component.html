@@ -1,0 +1,61 @@
+<div class="container py-5">
+    <h2 class="text-center mb-4">Order History</h2>
+  
+    <!-- Orders Table -->
+    <div *ngIf="orders.length > 0; else noOrders">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th>Order ID</th>
+              <th>Total Price</th>
+              <th>Order Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Use slice to handle pagination -->
+            <tr *ngFor="let order of orders.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+              <td>{{ order.orderId }}</td>
+              <td>₦{{ order.totalPrice | number: '1.2-2' }}</td>
+              <td>{{ order.orderDate | date: 'shortDate' }}</td>
+              <td>
+                <span [ngClass]="getStatusClass(order.status)">
+                  {{ order.status }}
+                </span>
+              </td>
+              <td>
+                <button class="btn btn-outline-info btn-sm" (click)="trackOrder(order.orderId)">Track Order</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Pagination -->
+      <nav aria-label="Page navigation" *ngIf="totalPages > 1">
+        <ul class="pagination justify-content-center mt-4">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="goToPage(currentPage - 1)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+            <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="goToPage(currentPage + 1)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <!-- No Orders Message -->
+    <ng-template #noOrders>
+      <p class="text-center">No orders found.</p>
+    </ng-template>
+  </div>
+  

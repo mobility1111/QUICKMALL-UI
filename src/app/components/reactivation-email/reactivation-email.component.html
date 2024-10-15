@@ -1,0 +1,15 @@
+
+<!-- reactivation.component.html -->
+<form [formGroup]="reactivationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group pt-4">
+      <label for="reactivationEmail">Enter your email for reactivation:</label>
+      <input type="email" class="form-control" id="reactivationEmail" formControlName="email" placeholder="Your email">
+    </div>
+  
+  
+    <button [disabled]="reactivationForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  
+  
+  

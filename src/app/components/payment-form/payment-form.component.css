@@ -1,0 +1,64 @@
+
+
+/* Container styles */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form header styles */
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form input styles */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #6c63ff; /* Change to your preferred focus color */
+  }
+  
+  /* Error message styles */
+  .text-danger {
+    color: #dc3545; /* Error text color */
+  }
+  
+  /* Submit button styles */
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c63ff; /* Button background color */
+    color: #fff; /* Button text color */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #5248cc; /* Hover background color */
+  }
+  
+  /* Additional styling */
+  .mb-3 {
+    margin-bottom: 20px;
+  }
+  
+  .mt-3 {
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,36 @@
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    background-color: #f8f9fa; /* Light gray background color */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  }
+  
+  .category-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .category-card .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .category-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+  }
+  
+  .btn-outline-secondary {
+    color: #6c757d; /* Secondary button text color */
+    border-color: #6c757d; /* Secondary button border color */
+  }
+  
+  .btn-outline-secondary:hover {
+    color: #343a40; /* Darker text color on hover */
+    background-color: #f8f9fa; /* Light gray background on hover */
+  }
+  

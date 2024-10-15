@@ -1,0 +1,42 @@
+
+<!-- payment-transactions.component.html -->
+<div class="container">
+    <h2 class="my-4">Payment Transactions</h2>
+    <div *ngIf="isLoading" class="alert alert-info">Loading payment transactions...</div>
+    <div *ngIf="!isLoading && transactions.length === 0" class="alert alert-warning">No payment transactions found.</div>
+    <div *ngIf="!isLoading && transactions.length > 0" class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Amount</th>
+            <th>Transaction Reference</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Payment Type</th>
+            <th>BillingAddress</th>
+            <th>ShippingAddress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.userId }}</td>
+            <td>{{ transaction.email }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.transactionReference }}</td>
+            <td [ngClass]="{'text-success': transaction.status, 'text-danger': !transaction.status}">
+              {{ transaction.status ? 'Success' : 'Failed' }}
+            </td>
+            <td>{{ transaction.createdAt | date }}</td>
+            <td>{{ transaction.paymentType }}</td>
+            <td>{{transaction.billingAddress}}</td>
+            <td>{{transaction.shippingAddress}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

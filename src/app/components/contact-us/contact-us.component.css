@@ -1,0 +1,22 @@
+
+.contact-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h4 {
+    font-weight: bold;
+  }
+  
+  .btn {
+    border-radius: 20px;
+  }
+  
+  .contact-info i {
+    color: #2083f5;
+  }
+  

@@ -1,0 +1,33 @@
+
+.about-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .about-section {
+    background-color: #f8f9fa;
+  }
+  
+  .about-section h2 {
+    color: #34f14d;
+  }
+  
+  .about-section p {
+    color: #6c757d;
+  }
+  
+  .card-body h5 {
+    color: #09861a;
+  }
+  
+  .team-section h2 {
+    color: #34f14d;
+  }
+  
+  .card-body p {
+    color: #6c757d;
+  }
+  
+  .card img {
+    border: 3px solid #34f14d;
+  }
+  

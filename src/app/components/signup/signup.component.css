@@ -1,0 +1,95 @@
+
+
+.outer {
+    height: 100vh;
+    background: linear-gradient(to top,  rgb(14, 233, 62) 50%,rgb(27, 184, 27) 90%) no-repeat;
+    display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  }
+  
+  .panel-heading {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  #forget {
+    min-width: 100px;
+    margin-left: auto;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .form-inline label {
+    padding-left: 10px;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .btn {
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+  
+  .panel {
+    min-height: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adjust the box shadow */
+    border-radius: 12px;
+    margin-top: 50px;
+  }
+  
+
+ 
+
+
+  .input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: #4343ff;
+  }
+  
+  .input-field.error {
+    border: 1px solid red !important; /* Use !important to ensure this style takes precedence */
+    color: red;
+  }
+  
+  
+  
+  input[type='text'],
+  input[type='password'] {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+  }
+  
+  .bi-eye-slash-fill.btn {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  @media screen and (max-width: 767px) {
+    /* Adjust styles for small screens */
+    .panel {
+      margin-top: 20px; /* Add some space at the top for small screens */
+    }
+  }
+  
+   

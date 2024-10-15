@@ -1,0 +1,42 @@
+<div class="container-fluid px-0 pt-4 mb-4 mt-5">
+  <div class="d-flex flex-column overflow-hidden rounded shadow-lg profile-container">
+    <div class="bg-info text-white p-4 d-flex align-items-center rounded-top profile-header">
+      <h2 class="fs-4 fw-bold text-center w-100">User Profile</h2>
+    </div>
+    <div class="profile-body flex-grow-1 d-flex flex-column align-items-center pb-4">
+      <div class="d-flex align-items-center mb-4">
+        <i class="bi bi-person-circle fs-2 text-info me-2"></i>
+        <div class="ms-4 d-flex flex-column">
+          <p class="fs-5 fw-bold mb-1">{{ userProfile.firstName }}</p>
+          <p class="text-muted">{{ userProfile.lastName }}</p>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card border-0 text-center h-100 shadow">
+            <div class="card-body">
+              <p class="mb-0 fs-6 fw-bold">{{ userProfile.email }}</p>
+              <span class="text-muted">Email</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-0 text-center h-100 shadow">
+            <div class="card-body">
+              <p class="mb-0 fs-6 fw-bold">{{ userProfile.userName }}</p>
+              <span class="text-muted">Username</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mt-4 flex-wrap">
+        <!-- <a routerLink="/edit-profile" class="btn btn-info me-2 fw-bold">Edit Profile</a> -->
+        <a href="#" class="btn btn-info fw-bold me-2" (click)="logout()">Log Out</a>
+        <a routerLink="/user-orders" class="btn btn-info fw-bold">My Orders</a>
+      </div>
+    </div>
+    <div class="text-center p-4 bg-light rounded-bottom profile-loading" *ngIf="!userProfile">
+      <p class="mb-0">Loading user profile...</p>
+    </div>
+  </div>
+</div>

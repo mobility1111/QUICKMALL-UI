@@ -1,0 +1,38 @@
+
+.container {
+    margin-top: 80px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-body img {
+    border: 3px solid #007bff;
+  }
+  
+  .list-group-item a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .list-group-item a:hover {
+    color: #0056b3;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  

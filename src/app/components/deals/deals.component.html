@@ -1,0 +1,22 @@
+
+<div class="deals-container py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Hot Deals</h2>
+  
+      <!-- Deals Grid -->
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let deal of deals">
+          <div class="card h-100">
+            <img [src]="deal.imageUrl" class="card-img-top" alt="{{ deal.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ deal.name }}</h5>
+              <p class="card-text">{{ deal.description }}</p>
+              <p class="card-text text-danger">Discount: {{ deal.discount }}%</p>
+              <button class="btn btn-primary w-100" (click)="addToCart(deal)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

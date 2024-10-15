@@ -1,0 +1,164 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand fs-4 fw-bold" routerLink="/">
+        <img src="assets/images/logo/mal.png" alt="Transtrail Logo" height="30" width="auto">
+        <span class="" style="color: #34f14d;">QuickMall</span>
+      </a>
+
+      <!-- Mobile Search and Menu Toggle -->
+      <div class="col-md-2 my-auto d-lg-none">
+        <a routerLink="/search" routerLinkActive="active" class="me-3">
+          <i class="bi bi-search p-3" style="font-size: 1.5rem; color: #34f14d;"></i>
+        </a>
+        <i class="bi bi-list" style="color: #34f14d; font-size: 32px; cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></i>
+      </div>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/shop">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals">Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us">Contact</a>
+          </li>
+        </ul>
+
+        <!-- User Account and Admin -->
+        <ul class="navbar-nav ms-lg-3">
+          <li class="nav-item">
+            <a routerLink="/search" class="btn btn-outline-success rounded-circle me-3">
+              <i class="bi bi-search"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" style="cursor: pointer;">SignUp/Login</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>My Account
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+              <li><a class="dropdown-item" routerLink="/my-orders">My Orders</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item">Logout</a></li>
+            </ul>
+          </li>
+
+          <!-- Admin Dropdown (if needed) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle link-dark" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-tools"></i> ADMIN
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+              <li><a routerLink="/add-product" class="dropdown-item"><i class="bi bi-cart-plus"></i> Add Product</a></li>
+              <li><a routerLink="/manage-orders" class="dropdown-item"><i class="bi bi-cart-plus"></i> Manage Orders</a></li>
+              <li><a routerLink="/manage-categories" class="dropdown-item"><i class="bi bi-cart-plus"></i> Manage Categories</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+  <!-- sidebar -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <!-- Logo -->
+      <a class="navbar-brand fs-4 fw-bold" routerLink="/">
+        <img src="assets/images/logo/mal.png" alt="QuickMall Logo Logo" height="30" width="auto">
+        <span class="" style="color: #34f14d;">QuickMall</span>
+      </a>
+      <!-- <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+    </div>
+    
+    <div class="offcanvas-body">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <!-- Home -->
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link link-dark">
+            <i class="bi bi-house-door"></i> Home
+          </a>
+        </li>
+        <!-- Shop -->
+        <li class="nav-item">
+          <a routerLink="/shop" class="nav-link link-dark">
+            <i class="bi bi-bag-fill"></i> Shop
+          </a>
+        </li>
+        <!-- Categories -->
+        <li class="nav-item">
+          <a routerLink="/categories" class="nav-link link-dark">
+            <i class="bi bi-grid-fill"></i> Categories
+          </a>
+        </li>
+        <!-- Deals -->
+        <li class="nav-item">
+          <a routerLink="/deals" class="nav-link link-dark">
+            <i class="bi bi-tags-fill"></i> Deals
+          </a>
+        </li>
+        <!-- Cart -->
+        <li class="nav-item">
+          <a routerLink="/cart" class="nav-link link-dark">
+            <i class="bi bi-cart-fill"></i> Cart
+          </a>
+        </li>
+        <!-- About Us -->
+        <li class="nav-item">
+          <a routerLink="/about" class="nav-link link-dark">
+            <i class="bi bi-info-circle"></i> About Us
+          </a>
+        </li>
+        <!-- Contact Us -->
+        <li class="nav-item">
+          <a routerLink="/contact" class="nav-link link-dark">
+            <i class="bi bi-telephone-fill"></i> Contact Us
+          </a>
+        </li>
+        <!-- SignUp/Login -->
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link link-dark">
+            <i class="bi bi-person"></i> SignUp/Login
+          </a>
+        </li>
+        <!-- Profile -->
+        <li class="nav-item">
+          <a routerLink="/profile" class="nav-link link-dark">
+            <i class="bi bi-person-circle"></i> Profile
+          </a>
+        </li>
+      </ul>
+  
+      <!-- User Account Dropdown -->
+      <div class="nav-item dropdown mt-3">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Hello, User
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+          <li><a routerLink="/my-orders" class="dropdown-item"><i class="bi bi-box-seam"></i> My Orders</a></li>
+          <li><a class="dropdown-item" style="cursor: pointer;"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  
