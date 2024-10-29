@@ -49,11 +49,11 @@ export class TokenInterceptor implements HttpInterceptor {
           return next.handle(req);
         }),
         catchError((err) => {
-          return throwError(() => {
-            this.toast.warning("Session is expired, Please Login again", "WARNING", 5000)
-            this.router.navigate(['login']);
-          });
-        })
-      );
+            return throwError(() => {
+              this.toast.warning({ detail: "Warning", summary: "Session is expired, Please Login again" });
+              this.router.navigate(['login']);
+            });
+          })
+        );
   }
 }

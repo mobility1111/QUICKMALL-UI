@@ -4,7 +4,7 @@
 
 .outer{
     height: 100vh;
-    background: linear-gradient(to top,  rgb(135, 218, 243) 50%,rgb(10, 191, 247) 90%) no-repeat;
+    background: linear-gradient(to top,  rgb(14, 233, 62) 50%,rgb(27, 184, 27) 90%) no-repeat;
 }
 
 .panel-heading{
@@ -48,7 +48,7 @@ a:hover{
     align-items: center;
     cursor: pointer;
     border: 1px solid #ddd;
-    color: #4343ff;
+    color: #0a9b35;
 }
 
 

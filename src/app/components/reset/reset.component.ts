@@ -65,13 +65,19 @@ export class ResetComponent implements OnInit {
         .subscribe({
           next: (res) => {
             console.log('API Response:', res); // Log the response to verify it
-            this.toast.success(res.message, 'SUCCESS', 7000);
-
+            this.toast.success({
+              detail: 'SUCCESS',
+              summary: res.message,
+              duration: 3000,
+            });
             this.router.navigate(['/'])
           },
           error: (err) => {
-            this.toast.danger(err.error.message, 'ERROR', 6000);
-
+            this.toast.error({
+              detail: 'ERROR',
+              summary: "Something went wrong",
+              duration: 3000,
+            });
           }
         })
     } else {

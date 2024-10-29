@@ -44,16 +44,13 @@ export class SignupComponent {
     if (this.signUpForm.valid) {
       this.auth.signUp(this.signUpForm.value).subscribe({
         next: (res=>{
-          this.toast.success(res.message, 'SUCCESS', 7000);
-
+          this.toast.success({ detail: 'SUCCESS', summary: res.message,duration: 7000 });
           this.signUpForm.reset();
           this.router.navigate(['login']);
         }),
         error: (err=>{
           //console.error('Login Error:', err.error.message);
-          this.toast.danger(err.error.message, 'ERROR', 6000);
-
-
+          this.toast.error({ detail: 'ERROR', summary: err.error.message,duration: 6000 });
           //alert(err?.error.message); // Assuming the message is in an "error.Message" property
           //console.error(err);
         })

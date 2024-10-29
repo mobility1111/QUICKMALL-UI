@@ -1,42 +1,56 @@
-<div class="container-fluid px-0 pt-4 mb-4 mt-5">
-  <div class="d-flex flex-column overflow-hidden rounded shadow-lg profile-container">
-    <div class="bg-info text-white p-4 d-flex align-items-center rounded-top profile-header">
-      <h2 class="fs-4 fw-bold text-center w-100">User Profile</h2>
-    </div>
-    <div class="profile-body flex-grow-1 d-flex flex-column align-items-center pb-4">
-      <div class="d-flex align-items-center mb-4">
-        <i class="bi bi-person-circle fs-2 text-info me-2"></i>
-        <div class="ms-4 d-flex flex-column">
-          <p class="fs-5 fw-bold mb-1">{{ userProfile.firstName }}</p>
-          <p class="text-muted">{{ userProfile.lastName }}</p>
-        </div>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 g-3">
-        <div class="col">
-          <div class="card border-0 text-center h-100 shadow">
-            <div class="card-body">
-              <p class="mb-0 fs-6 fw-bold">{{ userProfile.email }}</p>
-              <span class="text-muted">Email</span>
+<div class="container-fluid px-4 py-5 my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-lg overflow-hidden">
+        <div class="card-header bg-gradient p-4 position-relative" style="background: linear-gradient(45deg, #3a7bd5, #00d2ff);">
+          <h2 class="text-white text-center mb-0 fw-bold">User Profile</h2>
+          <div class="position-absolute top-100 start-50 translate-middle">
+            <div class="rounded-circle bg-white p-3 shadow">
+              <i class="bi bi-person-circle display-5 text-primary"></i>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card border-0 text-center h-100 shadow">
-            <div class="card-body">
-              <p class="mb-0 fs-6 fw-bold">{{ userProfile.userName }}</p>
-              <span class="text-muted">Username</span>
+        <div class="card-body pt-5 mt-4">
+          <div class="text-center mb-4">
+            <h3 class="fw-bold text-primary mb-1">{{ userProfile.firstName }} {{ userProfile.lastName }}</h3>
+            <p class="text-muted">@{{ userProfile.userName }}</p>
+          </div>
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 shadow-sm hover-shadow transition">
+                <div class="card-body text-center">
+                  <i class="bi bi-envelope-fill text-info fs-1 mb-3"></i>
+                  <h5 class="card-title fw-bold">Email</h5>
+                  <p class="card-text">{{ userProfile.email }}</p>
+                </div>
+              </div>
             </div>
+            <div class="col-md-6">
+              <div class="card h-100 border-0 shadow-sm hover-shadow transition">
+                <div class="card-body text-center">
+                  <i class="bi bi-person-badge-fill text-warning fs-1 mb-3"></i>
+                  <h5 class="card-title fw-bold">Username</h5>
+                  <p class="card-text">{{ userProfile.userName }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="#" class="btn btn-primary btn-lg px-4 fw-bold" (click)="logout()">
+              <i class="bi bi-box-arrow-right me-2"></i>Log Out
+            </a>
+            <a routerLink="/my-orders" class="btn btn-success btn-lg px-4 fw-bold">
+              <i class="bi bi-calendar-check me-2"></i>My Orders
+            </a>
           </div>
         </div>
       </div>
-      <div class="d-flex align-items-center mt-4 flex-wrap">
-        <!-- <a routerLink="/edit-profile" class="btn btn-info me-2 fw-bold">Edit Profile</a> -->
-        <a href="#" class="btn btn-info fw-bold me-2" (click)="logout()">Log Out</a>
-        <a routerLink="/user-orders" class="btn btn-info fw-bold">My Orders</a>
+      <div class="text-center mt-4" *ngIf="!userProfile">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 text-muted">Loading user profile...</p>
       </div>
-    </div>
-    <div class="text-center p-4 bg-light rounded-bottom profile-loading" *ngIf="!userProfile">
-      <p class="mb-0">Loading user profile...</p>
     </div>
   </div>
 </div>

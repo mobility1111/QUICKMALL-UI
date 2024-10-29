@@ -1,0 +1,56 @@
+
+
+
+.kids-banner-section {
+    padding: 40px 0;
+  }
+  
+  .kids-banner {
+    background-color: #16c024;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .banner-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .subtext {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 100%; /* Ensure it touches the top and bottom */
+    width: auto;
+    object-fit: contain; /* Maintain aspect ratio */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Create a slant on the right side */
+  }
+  
+  .btn-yellow {
+    background-color: #ffc107;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .kids-banner .row {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .btn-yellow {
+        margin-top: 15px;
+    }
+  }
+  
+  
+  
+  
+  

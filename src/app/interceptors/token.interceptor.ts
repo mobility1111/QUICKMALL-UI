@@ -118,8 +118,7 @@ export class TokenInterceptor implements HttpInterceptor {
         }),
         catchError((err) => {
           return throwError(() => {
-            this.toast.warning("Session is expired, Please Login again", 'Warning', 6000);
-
+            this.toast.warning({ detail: "Warning", summary: "Session is expired, Please Login again" });
             this.router.navigate(['login']);
           });
         })

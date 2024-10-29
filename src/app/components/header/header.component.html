@@ -21,21 +21,21 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/dashboard">Home</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/shop">Shop</a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" routerLink="/categories">Categories</a>
+            <a class="nav-link" routerLink="/category">Categories</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/deals">Deals</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/cart">Cart</a>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/contact-us">Contact</a>
-          </li>
+          </li> -->
         </ul>
 
         <!-- User Account and Admin -->
@@ -46,32 +46,48 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login" style="cursor: pointer;">SignUp/Login</a>
+            <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/login" style="cursor: pointer;">SignUp/Login</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a *ngIf="isLoggedIn()" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle"></i>My Account
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+              <li><a *ngIf="isLoggedIn()" class="dropdown-item" routerLink="/profile">Profile</a></li>
               <li><a class="dropdown-item" routerLink="/my-orders">My Orders</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item">Logout</a></li>
             </ul>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Help
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/faq">FAQS</a></li>
+              <li><a class="dropdown-item" routerLink="/contact-us">Contact-Us</a></li>
+            </ul>
+          </li>
 
           <!-- Admin Dropdown (if needed) -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle link-dark" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a *ngIf="role === 'admin'"  class="nav-link dropdown-toggle link-dark" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-tools"></i> ADMIN
             </a>
             <ul class="dropdown-menu" aria-labelledby="adminDropdown">
               <li><a routerLink="/add-product" class="dropdown-item"><i class="bi bi-cart-plus"></i> Add Product</a></li>
-              <li><a routerLink="/manage-orders" class="dropdown-item"><i class="bi bi-cart-plus"></i> Manage Orders</a></li>
-              <li><a routerLink="/manage-categories" class="dropdown-item"><i class="bi bi-cart-plus"></i> Manage Categories</a></li>
+              <li><a routerLink="/orders" class="dropdown-item"><i class="bi bi-cart-plus"></i> Manage Orders</a></li>
+              <li><a routerLink="/add-category" class="dropdown-item"><i class="bi bi-cart-plus"></i> Manage Categories</a></li>
             </ul>
           </li>
         </ul>
+        <a routerLink="/cart" routerLinkActive="active" class="me-3">
+          <div class="cart">
+            <i style="font-size: 1.5rem; cursor: pointer; color: #3fbbc0;" class="bi bi-cart"></i>
+          
+            <span class="cart-count">{{ cartItemsCount$ | async }}</span>
+          </div>
+        </a>
       </div>
     </div>
   </nav>
@@ -94,28 +110,28 @@
       <ul class="nav nav-pills flex-column mb-auto">
         <!-- Home -->
         <li class="nav-item">
-          <a routerLink="/" class="nav-link link-dark">
+          <a routerLink="/dashboard" class="nav-link link-dark">
             <i class="bi bi-house-door"></i> Home
           </a>
         </li>
         <!-- Shop -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a routerLink="/shop" class="nav-link link-dark">
             <i class="bi bi-bag-fill"></i> Shop
           </a>
-        </li>
+        </li> -->
         <!-- Categories -->
         <li class="nav-item">
-          <a routerLink="/categories" class="nav-link link-dark">
+          <a routerLink="/category" class="nav-link link-dark">
             <i class="bi bi-grid-fill"></i> Categories
           </a>
         </li>
         <!-- Deals -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a routerLink="/deals" class="nav-link link-dark">
             <i class="bi bi-tags-fill"></i> Deals
           </a>
-        </li>
+        </li> -->
         <!-- Cart -->
         <li class="nav-item">
           <a routerLink="/cart" class="nav-link link-dark">
@@ -130,7 +146,7 @@
         </li>
         <!-- Contact Us -->
         <li class="nav-item">
-          <a routerLink="/contact" class="nav-link link-dark">
+          <a routerLink="/contact-us" class="nav-link link-dark">
             <i class="bi bi-telephone-fill"></i> Contact Us
           </a>
         </li>
@@ -141,7 +157,7 @@
           </a>
         </li>
         <!-- Profile -->
-        <li class="nav-item">
+        <li *ngIf="isLoggedIn()" class="nav-item">
           <a routerLink="/profile" class="nav-link link-dark">
             <i class="bi bi-person-circle"></i> Profile
           </a>
@@ -151,7 +167,7 @@
       <!-- User Account Dropdown -->
       <div class="nav-item dropdown mt-3">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Hello, User
+          Hello, {{fullName}}
         </a>
         <ul class="dropdown-menu" aria-labelledby="userDropdown">
           <li><a routerLink="/my-orders" class="dropdown-item"><i class="bi bi-box-seam"></i> My Orders</a></li>

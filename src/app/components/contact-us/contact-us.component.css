@@ -1,22 +1,86 @@
+.contact-hero {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+  text-align: center;
+}
 
-.contact-container {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h4 {
-    font-weight: bold;
-  }
-  
-  .btn {
-    border-radius: 20px;
-  }
-  
-  .contact-info i {
-    color: #2083f5;
-  }
-  
+.contact-hero h1 {
+  font-size: 2.5rem;
+  color: #28a745; /* Green color */
+  margin-bottom: 15px;
+}
+
+.contact-hero p {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.contact {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.contact .info-box {
+  color: #444444;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.contact .info-box i {
+  font-size: 38px;
+  line-height: 0;
+  color: #28a745; /* Green color */
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #28a745; /* Green color */
+  font-weight: 700;
+  margin: 20px 0 10px 0;
+}
+
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.contact .php-email-form {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+  border: 1px solid #e4e4e4;
+  padding: 10px 15px;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #28a745; /* Green color */
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: #28a745; /* Green color */
+  border: 0;
+  padding: 12px 34px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: #218838; /* Darker green on hover */
+}
+
+.text-danger {
+  color: #dc3545; /* Red color for error messages */
+}

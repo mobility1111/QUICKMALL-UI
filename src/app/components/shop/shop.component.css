@@ -1,27 +1,22 @@
 
-.shop-container {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-body {
-    text-align: center;
-  }
-  
-  .btn {
-    border-radius: 20px;
-  }
-  
+.category-card {
+  /* Set the height of the category cards as needed */
+ transition: transform 0.3s ease; /* Add smooth transition for the hovering effect */
+}
+
+.category-card:hover {
+ transform: scale(1.05); /* Enlarge the card on hover */
+}
+
+.category-card img {
+ max-width: 100%;
+ max-height: 100%;
+ object-fit: cover;
+}
+
+
+@media (max-width: 767px) {
+ .order-md-last {
+   order: -1;
+ }
+}

@@ -41,23 +41,43 @@ export class CartService {
 
   addToCart(cartItem: CartItem, userId: string): Observable<void> {
     const payload = {
-      medicineId: cartItem.productId,
-      quantity: cartItem.quantity,
-      userId: userId
+        productId: cartItem.productId,
+        quantity: cartItem.quantity,
+        userId: userId
     };
+    return this.http.post<void>(`${this.baseApiUrl}/api/carts/add`, payload)
+        .pipe(
+            tap(() => {
+                this.cartItems.push(cartItem);
+                this.updateCartItemsCount();
+            }),
+            catchError((error) => {
+                console.error('Error adding to cart:', error);
+                throw error;
+            })
+        );
+}
 
-    return this.http.post<any>(`${this.apiUrl}/add`, payload, { headers: this.getAuthHeaders() })
-      .pipe(
-        tap(() => {
-          this.cartItems.push(cartItem);
-          this.updateCartItemsCount();
-        }),
-        catchError((error) => {
-          console.error('Error adding to cart:', error);
-          throw error;
-        })
-      );
-  }
+
+  // addToCart(cartItem: CartItem, userId: string): Observable<void> {
+  //   const payload = {
+  //     productId: cartItem.productId,
+  //     quantity: cartItem.quantity,
+  //     userId: userId
+  //   };
+  //   return this.http.post<any>(`${this.baseApiUrl}/api/carts/add?productId=${payload.productId}&quantity=${payload.quantity}&userId=${payload.userId}`, payload)
+  //     .pipe(
+  //       tap(() => {
+  //         this.cartItems.push(cartItem);
+  //         this.updateCartItemsCount();
+  //       }),
+  //       catchError((error) => {
+  //         console.error('Error adding to cart:', error);
+  //         throw error;
+  //       })
+  //     );
+  // }
+
 
   updateCartItem(cartItem: CartItem): Observable<CartItem> {
     return this.http.put<CartItem>(`${this.apiUrl}/updateCartItem`, cartItem, { headers: this.getAuthHeaders() });

@@ -1,0 +1,23 @@
+
+<form #categoryForm="ngForm" (ngSubmit)="submit()">
+  
+    <div>
+      <label for="name">Category Name:</label>
+      <input type="text" id="name" [(ngModel)]="category.name" name="name" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="image">Category Image:</label>
+      <input type="file" id="image" (change)="onFileSelected($event)" name="image" accept="image/*" required>
+  </div>
+   
+  <div class="mb-3">
+      <label for="ImageUrl">Category Image URL:</label>
+      <input type="text" id="ImageUrl" name="imageUrl" [(ngModel)]=" category.imageUrl">
+    </div>
+    
+    <button type="submit" [disabled]="!categoryForm.valid">Add Category</button>
+  
+  </form>
+  
+  

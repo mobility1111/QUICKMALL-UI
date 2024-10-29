@@ -16,11 +16,11 @@ export class CategoryService {
   // Add a new product category
   addCategory(category: ProductCategory): Observable<ProductCategory> {
     category.productCategoryId = '00000000-0000-0000-0000-000000000000'; // Assuming this ID format
-    return this.http.post<ProductCategory>(`${this.baseApiUrl}/api/products/addCategory`, category); // Updated endpoint
+    return this.http.post<ProductCategory>(`${this.baseApiUrl}/api/product-categories/addCategory`, category); // Corrected endpoint
   }
 
   // Get all product categories
   getAllCategories(): Observable<ProductCategory[]> {
-    return this.http.get<ProductCategory[]>(`${this.baseApiUrl}/api/products/GetAllProductCategories`); // Updated endpoint
+    return this.http.get<ProductCategory[]>(`${this.baseApiUrl}/api/product-categories`); // Corrected endpoint
   }
 }

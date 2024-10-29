@@ -1,24 +1,27 @@
 <nav class="navbar fixed-bottom navbar-light bg-light bottom-nav d-md-none">
   <div class="container-fluid justify-content-between">
     <!-- Home -->
-    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <i class="bi bi-house-door"></i>
       <span>Home</span>
     </a>
     <!-- Shop -->
-    <a routerLink="/shop" routerLinkActive="active">
+    <!-- <a routerLink="/shop" routerLinkActive="active">
       <i class="bi bi-bag-fill"></i>
       <span>Shop</span>
-    </a>
+    </a> -->
     <!-- Categories -->
-    <a routerLink="/categories" routerLinkActive="active">
+    <a routerLink="/category" routerLinkActive="active">
       <i class="bi bi-grid-fill"></i>
       <span>Categories</span>
     </a>
     <!-- Cart -->
     <a routerLink="/cart" routerLinkActive="active">
-      <i class="bi bi-cart-fill"></i>
-      <span>Cart</span>
+       <div class="cart">
+        <i style="font-size: 1.5rem; cursor: pointer;" class="bi bi-cart-fill"></i>
+        <span>Cart</span>
+        <span class="cart-count">{{ cartItemsCount$ | async }}</span>
+      </div>
     </a>
     <!-- Orders -->
     <!-- <a routerLink="/orders" routerLinkActive="active">

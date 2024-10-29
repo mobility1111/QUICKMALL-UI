@@ -1,0 +1,78 @@
+
+/* Apply a general style to the form container */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  /* Style the form elements */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  /* Style the select dropdown arrow */
+  select {
+    appearance: none;
+    padding-right: 30px;
+    /* background-image: url('path-to-your-arrow-icon.png'); */
+    background-repeat: no-repeat;
+    background-position: 95% center;
+  }
+  
+  /* Style the submit button */
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add styles for required fields */
+  input:required,
+  select:required {
+    border-color: #ff6347; /* Red border for required fields */
+  }
+  
+  /* Add styles for form validation errors */
+  .ng-invalid.ng-touched {
+    border-color: #ff6347; /* Red border for invalid fields when touched */
+  }
+  
+  /* Customize input focus style */
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue box-shadow on focus */
+  }
+  
+  /* Add more specific styles or overrides as necessary */
+  

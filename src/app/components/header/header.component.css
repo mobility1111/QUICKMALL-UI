@@ -111,11 +111,11 @@ body {
   
   .nav-link.active {
     color: #fff;
-    background-color: #3fbbc0;
+    background-color: #34f14d;
   }
   
   .nav-link:hover {
-    color: #007bff;
+    color: #0d801c;
   }
   
   /* Ensure dropdown menu items are styled appropriately */
@@ -124,7 +124,23 @@ body {
   }
   
   
+  .cart {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    background-color: #34f14d; /* You can set your desired background color */
+    color: white;
+    border-radius: 50%;
+    padding: 3px 8px; /* Adjust padding as needed */
+    font-size: 12px; /* Adjust font size as needed */
+  }
   
   
   

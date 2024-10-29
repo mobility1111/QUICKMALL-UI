@@ -1,0 +1,40 @@
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .error-icon {
+    font-size: 6rem;
+    color: #dc3545;
+  }
+
+  .error-heading {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    color: #dc3545;
+  }
+
+  .error-message {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #6c757d;
+  }
+
+  .error-link {
+    margin-top: 20px;
+    color: #0d6efd;
+    text-decoration: none;
+  }
+
+  .error-link:hover {
+    text-decoration: underline;
+  }

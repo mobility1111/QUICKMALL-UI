@@ -50,20 +50,19 @@ export class LoginComponent {
         next: (res) => {
           //alert(res.message);
           console.log('Response:', res.message);
-          this.toast.success(res.message, 'SUCCESS', 7000);
+          this.toast.success({detail:"SUCCESS", summary:res.message, duration: 5000});
           this.loginForm.reset();
           this.auth.storeToken(res.accessToken);
           this.auth.storeRefreshToken(res.refreshToken);
           const tokenPayload = this.auth.decodedToken();
           this.userStore.setFullNameForStore(tokenPayload.name);
           this.userStore.setRoleForStore(tokenPayload.role);
-          this.toast.success(res.message, 'SUCCESS', 7000);
+          this.toast.success({detail:"SUCCESS", summary:res.message, duration: 5000});
           this.router.navigate(['dashboard'])
         },
         error: (err) => {
           console.error('Login Error:', err.error);
-          this.toast.danger(err.error.message, 'ERROR', 6000);
-
+          this.toast.error({detail:"ERROR", summary: err.error, duration: 5000});
           //alert(err.error.message);
           // const summary = (err && err.message) ? err.message.summary : "Something went wrong!";
           // this.toast.error({ detail: "ERROR", summary: summary, duration: 5000 });
@@ -93,16 +92,22 @@ export class LoginComponent {
      this.resetService.sendResetPsswordLink(this.resetPasswordEmail)
      .subscribe({
        next:(res)=>{
-        this.toast.success(res.message, 'SUCCESS', 7000);
-
+         this.toast.success({
+           detail: 'Success',
+           summary: 'Email sent, check your email',
+           duration: 6000,
+         });
          this.resetPasswordEmail = "";
          const buttonRef = document.getElementById("closeBtn");
          buttonRef?.click();
 
        },
        error:(err)=>{
-        this.toast.danger(err.error.message, 'ERROR', 6000);
-
+         this.toast.error({
+           detail: 'ERROR',
+           summary: 'Something went wrong',
+           duration: 3000,
+         });
        
        }
      })

@@ -28,7 +28,7 @@
   }
   
   .hero-section .btn {
-    background-color: #34f14d;
+    background-color: #1cad2f;
     border: none;
     padding: 10px 30px;
     font-size: 1.1rem;
@@ -43,7 +43,7 @@
   .categories-section h2,
   .featured-products-section h2,
   .cta-section h2 {
-    color: #34f14d;
+    color: #1cad2f;
   }
   
   .card-body h5 {
@@ -51,7 +51,7 @@
   }
   
   .cta-section {
-    background-color: #34f14d;
+    background-color: #1cad2f;
     color: #fff;
   }
   

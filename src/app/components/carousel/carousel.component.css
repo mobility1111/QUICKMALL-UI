@@ -1,0 +1,93 @@
+/* Carousel container */
+.scroll-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Wrapper for scrolling items */
+.scroll-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    cursor: grab; /* Show the grab cursor for dragging */
+}
+
+.scroll-wrapper.active {
+    cursor: grabbing; /* Change cursor when dragging */
+}
+
+/* Each scrollable item */
+.scroll-item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    width: 300px;
+    position: relative; /* Make it relative for positioning child elements */
+}
+
+/* Image styling */
+.scroll-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: adds rounded corners */
+    display: block;
+}
+
+/* Text overlay styling */
+.image-text {
+    position: absolute;
+    bottom: 50px; /* Position above the button */
+    left: 10px; /* Position from the left */
+    color: #ffffff; /* Text color */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2em; /* Text size */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Optional text shadow for better visibility */
+}
+
+/* Button styling */
+.image-button {
+    position: absolute;
+    bottom: 10px; /* Position at the bottom of the image */
+    left: 10px; /* Position from the left */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff; /* Button text color */
+    padding: 10px 15px; /* Button padding */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from link */
+    font-size: 1em; /* Button text size */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.image-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Ensure images fit well in small screens */
+@media (max-width: 768px) {
+    .scroll-item {
+        width: 200px; /* Smaller image width on mobile screens */
+    }
+
+    .scroll-container {
+        padding: 10px;
+        margin-top: 30px;
+    }
+
+    .image-text {
+        font-size: 1em; /* Adjust text size for mobile */
+        bottom: 30px; /* Position text closer to the bottom on mobile */
+    }
+
+    .image-button {
+        font-size: 0.9em; /* Adjust button size for mobile */
+        padding: 8px 12px; /* Adjust padding for button on mobile */
+    }
+}

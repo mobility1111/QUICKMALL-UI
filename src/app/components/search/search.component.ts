@@ -102,16 +102,18 @@ export class SearchComponent implements OnInit {
   
       this.cartService.addToCart(cartItem, userId).subscribe({
         next: () => {
-          this.toast.success(`Product "${product.name}" added to cart!`, 'SUCCESS', 5000);
+          this.toast.success({ detail: 'SUCCESS', summary: `Product "${product.name}" added to cart!`, duration: 5000 });
         },
         error: (error) => {
           console.error('Error adding product to cart:', error);
-          this.toast.danger('Failed to add product to cart. Please try again.');
+          this.toast.error({ detail: 'ERROR', summary: 'Failed to add product to cart. Please try again.', duration: 5000 });
+          // Handle errors here if needed
         }
       });
     } else {
       console.error('User is not logged in or userId is null.');
-      this.toast.warning('User is not logged in or userId is null.', 'WARNING', 5000);
+      this.toast.warning({ detail: 'WARNING', summary: 'User is not logged in or userId is null.', duration: 5000 });
+      // Handle this case based on your application's logic
     }
   }
 }

@@ -1,10 +1,122 @@
 
+<!-- Hero Section -->
+<section id="contact-hero" class="contact-hero d-flex align-items-center">
+  <div class="container">
+      <h1>Contact Us</h1>
+      <p>Get in touch with our team for any inquiries or support</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+      <div class="row gy-4">
+          <!-- Contact Info -->
+          <div class="col-lg-6">
+              <div class="row gy-4">
+                  <div class="col-md-6">
+                      <div class="info-box">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <h3>Address</h3>
+                          <p>123 Main Street, <br> Owerri, Imo State, Nigeria</p>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="info-box">
+                          <i class="fas fa-phone-alt"></i>
+                          <h3>Call Us</h3>
+                          <p><a href="tel:+2348134170891">+2348134170891</a></p>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="info-box">
+                          <i class="fas fa-envelope"></i>
+                          <h3>Email Us</h3>
+                          <p><a href="mailto:pharmease89@gmail.com">support@quickmall.com</a></p>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="info-box">
+                          <i class="fas fa-clock"></i>
+                          <h3>Open Hours</h3>
+                          <p>Monday - Friday<br>9:00AM - 5:00PM</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="col-lg-6">
+              <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="php-email-form">
+                  <div class="row gy-4">
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="contact-name" class="form-label">Your Name *</label>
+                              <input type="text" id="contact-name" class="form-control" formControlName="name" placeholder="Your Name *">
+                              <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger">
+                                  Please enter your name.
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="mb-3">
+                              <label for="contact-email" class="form-label">Your Email *</label>
+                              <input type="email" id="contact-email" class="form-control" formControlName="email" placeholder="Your Email *">
+                              <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger">
+                                  Please enter a valid email address.
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                          <div class="mb-3">
+                              <label for="contact-subject" class="form-label">Subject *</label>
+                              <input type="text" id="contact-subject" class="form-control" formControlName="subject" placeholder="Subject">
+                              <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" class="text-danger">
+                                  Please enter a subject.
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                          <div class="mb-3">
+                              <label for="contact-message" class="form-label">Message *</label>
+                              <textarea id="contact-message" class="form-control" formControlName="message" rows="6" placeholder="Write your message here"></textarea>
+                              <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-danger">
+                                  Please enter your message.
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12 text-center">
+                          <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Send Message</button>
+                      </div>
+                  </div>
+              </form>
+              <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+              <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- 
+  <app-about-us></app-about-us> -->
+  
+
+  
+
+
+
+
+
+
+
+
+
+<!-- 
 <div class="contact-container py-5">
     <div class="container">
       <h2 class="mb-4 text-center">Contact Us</h2>
   
       <div class="row">
-        <!-- Contact Form -->
+
         <div class="col-md-6 mb-4">
           <div class="card p-4">
             <h4 class="mb-4">Get in Touch</h4>
@@ -26,7 +138,7 @@
           </div>
         </div>
   
-        <!-- Contact Information -->
+
         <div class="col-md-6">
           <div class="card p-4 h-100">
             <h4 class="mb-4">Contact Information</h4>
@@ -49,4 +161,4 @@
       </div>
     </div>
   </div>
-  
+   -->

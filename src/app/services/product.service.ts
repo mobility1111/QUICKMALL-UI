@@ -30,17 +30,20 @@ export class ProductService {
   // Get products by category
   getProductsByCategory(categoryId: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseApiUrl}/api/product/category/${categoryId}`);
+
   }
 
   // Get featured products
   getFeaturedProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseApiUrl}/api/product/featuredProducts`); 
+    return this.http.get<Product[]>(`${this.baseApiUrl}/api/product/featuredProducts`);
   }
+  
 
   // Get product by ID
   getProductById(productId: string): Observable<Product> {
-    return this.http.get<Product>(`${this.baseApiUrl}/api/product/products/${productId}`);
-  }
+    return this.http.get<Product>(`${this.baseApiUrl}/api/product/product/${productId}`);
+}
+
 
   // Get all product categories
   getAllProductCategories(): Observable<ProductCategory[]> {

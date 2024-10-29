@@ -25,11 +25,18 @@ export class CartComponent implements OnInit {
  
   loadCartItems(): void {
     const userId = this.authService.getUserIdFromToken();
-  
+    
     if (userId) {
       this.cartService.getCartItems(userId).subscribe({
         next: (cartItems) => {
           console.log('Cart items loaded successfully:', cartItems);
+  
+          // Log each cart item individually to inspect product details
+          cartItems.forEach((item, index) => {
+            console.log(`Cart Item ${index + 1}:`, item);
+            console.log(`Product in Cart Item ${index + 1}:`, item.product); // Check for product details
+          });
+  
           this.cartItems = cartItems;
           this.cartTotalPrice = this.calculateCartTotalPrice();
         },
@@ -41,6 +48,7 @@ export class CartComponent implements OnInit {
       console.warn('User ID is not available.');
     }
   }
+  
   
 
   decreaseQuantity(item: CartItem): void {
@@ -105,10 +113,8 @@ export class CartComponent implements OnInit {
   
   proceedToCheckout(): void {
     const totalPrice = this.calculateCartTotalPrice();
-    this.router.navigate(['/payment-form'], { queryParams: { totalPrice: totalPrice, paymentType: 'medicine' } });
+    this.router.navigate(['/payment-form'], { queryParams: { totalPrice: totalPrice, paymentType: 'product' } });
   } 
-
- 
 }
 
 

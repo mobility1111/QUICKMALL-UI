@@ -11,25 +11,25 @@
     <span class="ms-2">Loading...</span>
   </div>
 
-  <!-- No Medicines Found Message -->
-  <div *ngIf="!loading && paginatedMedicines.length === 0" class="text-center py-4">
-    <span>No medicines found.</span>
+  <!-- No Products Found Message -->
+  <div *ngIf="!loading && paginatedProducts.length === 0" class="text-center py-4">
+    <span>No products found.</span>
   </div>
 
-  <!-- Medicine Grid -->
+  <!-- Product Grid -->
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let medicine of paginatedMedicines">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let product of paginatedProducts">
       <div class="card p-3 h-100">
-        <!-- Medicine Image -->
+        <!-- Product Image -->
         <div class="d-flex justify-content-center">
           <div class="image-container">
             <app-image-display [imageString]="product.imageData" [width]="180" [height]="150" class="img-fluid"></app-image-display>
           </div>
         </div>
 
-        <!-- Medicine Details -->
+        <!-- Product Details -->
         <div class="card-body p-2 text-center">
-          <h6 class="card-title fw-bolder fs-6 mb-2">{{ medicine.name }}</h6>
+          <h6 class="card-title fw-bolder fs-6 mb-2">{{ product.name }}</h6>
           <div class="d-flex justify-content-center small text-warning mb-2">
             <i class="bi bi-star-fill"></i>
             <i class="bi bi-star-fill"></i>
@@ -37,13 +37,13 @@
             <i class="bi bi-star-fill"></i>
             <i class="bi bi-star-fill"></i>
           </div>
-          <div class="fw-bold">₦{{ medicine.price }}</div>
+          <div class="fw-bold">₦{{ product.price }}</div>
         </div>
 
         <!-- Card Footer -->
         <div class="card-footer p-2 bg-transparent border-top-0 text-center">
-          <a [routerLink]="['/medicines', medicine.id]" class="btn btn-outline-primary btn-sm m-2">View</a>
-          <button (click)="addToCart(medicine)" class="btn btn-outline-success btn-sm">Add to cart</button>
+          <a [routerLink]="['/products', product.id]" class="btn btn-outline-primary btn-sm m-2">View</a>
+          <button (click)="addToCart(product)" class="btn btn-outline-success btn-sm">Add to cart</button>
         </div>
       </div>
     </div>

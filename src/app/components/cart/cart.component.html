@@ -1,58 +1,82 @@
 
-<div class="cart-container py-5">
-  <div class="container">
-    <h2 class="mb-4 text-center">My Cart <i style="color: #3fbbc0;" class="bi bi-cart-plus-fill"></i></h2>
+<!-- cart/cart.component.html -->
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title mb-4">My Cart <i style="color: #3fbbc0;" class="bi bi-cart-plus-fill">...</i> </h2>
 
-    <!-- Cart Items Table -->
-    <div *ngIf="cartItems.length > 0; else emptyCart">
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead class="bg-primary text-white">
-            <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-              <th scope="col">Subtotal</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of cartItems">
-              <td>
-                <app-image-display [imageString]="item?.imageData ?? null" [width]="60" [height]="60"></app-image-display>
-                {{ item.productName }}
-              </td>
-              <td>
-                <input type="number" [(ngModel)]="item.quantity" min="1" class="form-control" (change)="updateSubtotal(item)">
-              </td>
-              <td>₦{{ item.medicine.price | number: '1.2-2' }}</td>
-              <td>₦{{ (item.medicine.price * item.quantity) | number: '1.2-2' }}</td>
-              <td>
-                <button class="btn btn-outline-danger btn-sm" (click)="removeCartItem(item)">Remove</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Medicine</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cartItems">
+                <td>
+                  <app-image-display [imageString]="item?.imageData  ?? null" [width]="60" [height]="60"></app-image-display>
+
+                </td>
+                <td>{{ item.product ? item.product.description : '' }}</td>
+                <td>₦{{ item.product.price}}</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-sm btn-primary mr-2" (click)="decreaseQuantity(item)">-</button>
+                    <span>{{ item.quantity }}</span>
+                    <button class="btn btn-sm btn-primary ml-2" (click)="increaseQuantity(item)">+</button>
+                  </div>
+                </td>
+                <td>₦{{ (item.product.price * item.quantity)}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="removeCartItem(item)">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <!-- Cart Summary -->
-      <div class="cart-summary mt-4 p-4 border rounded">
-        <h4>Cart Summary</h4>
-        <p>Total Items: {{ getTotalItems() }}</p>
-        <p>Total Amount: ₦{{ getTotalAmount() | number: '1.2-2' }}</p>
-        <button class="btn btn-success w-100" (click)="proceedToCheckout()">Proceed to Checkout</button>
+      <div class="row mt-4">
+        <div class="col-md-8"></div>
+
+        <div class="col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">Cart Summary</h5>
+            <p>Total Items: {{ cartItems.length }}</p>
+            <p>Total Price: ₦{{ cartTotalPrice}}</p>
+          
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <button class="btn btn-info btn-lg btn-block" (click)="proceedToCheckout()">Checkout</button>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-danger btn-lg btn-block" (click)="clearCart()">Clear Cart</button>
+              </div>
+            </div>
+          </div>
+          
       </div>
+
+      <ng-template #emptyCart>
+        <p>Your cart is empty. Start shopping now!</p>
+        <button class="btn btn-info" routerLink="/category">Shop Now</button>
+      </ng-template>
     </div>
-
-    <!-- Empty Cart Message -->
-    <ng-template #emptyCart>
-      <div class="text-center">
-        <h5>Your cart is currently empty</h5>
-        <a routerLink="/category" class="btn btn-primary mt-4">Shop Now</a>
-      </div>
-    </ng-template>
   </div>
 </div>
+
+
+
+
+
+
 
 
 

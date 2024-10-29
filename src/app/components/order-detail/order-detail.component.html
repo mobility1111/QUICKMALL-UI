@@ -25,7 +25,7 @@
             <div *ngIf="order.orderItems && order.orderItems.length > 0">
               <div *ngFor="let item of order.orderItems" class="order-item card mb-3">
                 <div class="card-body">
-                  <p><strong>Medicine Name:</strong>{{ item.medicineName }}</p>
+                  <p><strong>Product Name:</strong>{{ item.productName }}</p>
                   <p><strong>Quantity:</strong> {{ item.quantity }}</p>
                   <p><strong>Price:</strong> NGN{{ item.price}}</p>
                 </div>

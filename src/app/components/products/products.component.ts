@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
@@ -9,19 +8,19 @@ import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
-  paginatedProducts: Product[] = []; // Holds products for the current page
+  paginatedProducts: Product[] = [];
   loading = true;
 
-  pageSize: number = 3; // Number of items per page
-  currentPage: number = 1; // Current page number
-  totalItems: number = 0; // Total number of products
-  totalPages: number = 0; // Total number of pages
+  pageSize: number = 3;
+  currentPage: number = 1;
+  totalItems: number = 0;
+  totalPages: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,36 +41,46 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  // Fetch all products
   getAllProducts(): void {
-    this.productService.getAllProducts().subscribe((products) => {
-      this.products = products;
-      this.totalItems = this.products.length; // Set the total number of products
-      this.totalPages = Math.ceil(this.totalItems / this.pageSize); // Calculate total pages
-      this.loading = false;
-      this.paginateProducts(); // Paginate after loading all products
+    this.productService.getAllProducts().subscribe({
+      next: (products) => {
+        this.products = products;
+        this.totalItems = this.products.length;
+        this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+        this.loading = false;
+        this.paginateProducts();
+      },
+      error: (err) => {
+        console.error('Error fetching products:', err);
+        this.loading = false;
+        this.toast.error({ detail: 'ERROR', summary: 'Failed to fetch products. Please try again later.', duration: 5000 });
+      }
     });
   }
 
-  // Fetch products by category
   getProductsByCategory(categoryId: string): void {
-    this.productService.getProductsByCategory(categoryId).subscribe((products) => {
-      this.products = products;
-      this.totalItems = this.products.length; // Set the total number of products
-      this.totalPages = Math.ceil(this.totalItems / this.pageSize); // Calculate total pages
-      this.loading = false;
-      this.paginateProducts(); // Paginate after loading products
+    this.productService.getProductsByCategory(categoryId).subscribe({
+      next: (products) => {
+        this.products = products;
+        this.totalItems = this.products.length;
+        this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+        this.loading = false;
+        this.paginateProducts();
+      },
+      error: (err) => {
+        console.error('Error fetching products by category:', err);
+        this.loading = false;
+        this.toast.error({ detail: 'ERROR', summary: 'Failed to fetch products by category. Please try again later.', duration: 5000 });
+      }
     });
   }
 
-  // Paginate the products based on the current page
   paginateProducts(): void {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.paginatedProducts = this.products.slice(startIndex, endIndex);
   }
 
-  // Set the current page and paginate again
   setPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
@@ -79,7 +88,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  // Go to the next page
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
@@ -87,7 +95,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  // Go to the previous page
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -95,50 +102,35 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  // Helper method for rendering pagination numbers
   get totalPagesArray(): number[] {
     return Array(this.totalPages).fill(0).map((x, i) => i + 1);
   }
 
-  // Add product to cart
   addToCart(product: Product): void {
     const userPayload = this.authService.decodedToken();
-    console.log('User Payload:', userPayload);
-  
     if (userPayload && userPayload.UserId) {
       const userId: string = userPayload.UserId;
-      console.log('User ID:', userId);
-  
       const cartItem: CartItem = {
-        cartItemId: '', // Leave it as an empty string to be handled by the backend
+        cartItemId: '', 
         productId: product.id,
-        quantity: 1, // Adjust quantity as per user input or default value
+        quantity: 1,
         price: product.price,
         product: product
       };
-      console.log('Cart Item:', cartItem);
-  
+
       this.cartService.addToCart(cartItem, userId).subscribe({
         next: () => {
-          console.log('Product added to cart successfully.');
-          // Correct use of the toast service
-          this.toast.success(`Product "${product.name}" added to cart!`, 'SUCCESS', 5000);
+          this.toast.success({ detail: 'SUCCESS', summary: `Product "${product.name}" added to cart!`, duration: 5000 });
         },
         error: (error) => {
-          console.error('Error adding product to cart:', error);
-          // Correct use of the toast service
-          this.toast.danger('Failed to add product to cart. Please try again.');
+          this.toast.error({ detail: 'ERROR', summary: 'Failed to add product to cart. Please try again.', duration: 5000 });
         }
       });
     } else {
-      console.error('User is not logged in or userId is null.');
-      // Correct use of the toast service
-      this.toast.warning('User is not logged in or userId is null.', 'WARNING', 5000);
+      this.toast.warning({ detail: 'WARNING', summary: 'User is not logged in or userId is null.', duration: 5000 });
     }
   }
-  
 }
-
 
 
 
